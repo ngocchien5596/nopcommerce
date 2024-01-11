@@ -16,6 +16,7 @@ class Test:
     expect_login_title = ReadConfig.getExpectLoginPageTitle()
     droplist_newsLetter_xpath = "//input[contains(@aria-labelledby, 'SelectedNewsletterSubscriptionStoreIds_label')]"
     droplist_newsLetter_id = "//div[contains(@class, 'input-group-append')]//select[contains(@id, 'SelectedNewsletterSubscriptionStoreIds')]"
+    message_addSuccess_xpath = "//div[contains(@class, 'alert alert-success alert-dismissable')]"
 
     # Data Test
     faker = Faker()
@@ -93,9 +94,32 @@ class Test:
         self.driver.save_screenshot("./Screenshots/"+"testAddNewCustomer.png")
 
         self.an.clickSave()
-        time.sleep(2)
+        time.sleep(3)
+        list_status = []
 
-        self.driver.close()
+        # Check display success message
+        if self.driver.find_element(By.XPATH, self.message_addSuccess_xpath):
+            list_status.append("Pass")
+        else:
+            list_status.append("Fail")
+
+        # Check new customer is displayed on customer table
+        customername = self.an.getCustomer()
+        print(customername)
+
+        if self.email1 in customername:
+            list_status.append("Pass")
+        else:
+            list_status.append("Fail")
+
+        if "Fail" not in list_status:
+            assert True
+            self.driver.close()
+        else:
+            self.driver.close()
+            assert False
+
+
 
 
 

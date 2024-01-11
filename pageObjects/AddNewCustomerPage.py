@@ -140,3 +140,13 @@ class AddNewCustomerPage:
     def clickSave(self):
         self.driver.find_element(By.NAME, self.button_save_name).click()
         time.sleep(3)
+
+    def getCustomer(self):
+        tr_xpath = "//table[contains(@id, 'customers-grid')]//tbody//tr"
+        max = len(self.driver.find_elements(By.XPATH, tr_xpath))
+        list_customer = []
+        for i in range (0, max):
+            tr_xpath = "//table[contains(@id, 'customers-grid')]//tbody//tr["+str(i+1)+"]//td[2]"
+            customerEmail = self.driver.find_element(By.XPATH, tr_xpath).text
+            list_customer.append(customerEmail)
+        return list_customer
