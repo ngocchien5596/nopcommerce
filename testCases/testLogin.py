@@ -17,10 +17,10 @@ class Test:
     checkbox_rememberme_xpath = "//input[contains(@id, 'RememberMe')]"
     nullInput = ""
     invalidValue = "abc"
-    lable_error1_xpath = "//span[contains(@id, 'Email-error') and contains(., 'Please enter your email')]"
-    lable_error2_xpath = "//li[contains(., 'The credentials provided are incorrect')]"
-    lable_error3_xpath = "//span[contains(@id, 'Email-error') and contains(., 'Wrong email')]"
-    lable_logout_xpath = "//a[contains(@class, 'nav-link') and contains(., 'Logout')]"
+    label_error1_xpath = "//span[contains(@id, 'Email-error') and contains(., 'Please enter your email')]"
+    label_error2_xpath = "//li[contains(., 'The credentials provided are incorrect')]"
+    label_error3_xpath = "//span[contains(@id, 'Email-error') and contains(., 'Wrong email')]"
+    label_logout_xpath = "//a[contains(@class, 'nav-link') and contains(., 'Logout')]"
 
 
 
@@ -108,7 +108,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(2)
 
-        if self.driver.find_element(By.XPATH, self.lable_error1_xpath):
+        if self.driver.find_element(By.XPATH, self.label_error1_xpath):
             assert True
             self.driver.close()
         else:
@@ -134,7 +134,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(2)
 
-        if self.driver.find_element(By.XPATH, self.lable_error2_xpath):
+        if self.driver.find_element(By.XPATH, self.label_error2_xpath):
             assert True
             self.driver.close()
         else:
@@ -159,7 +159,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(2)
 
-        if self.driver.find_element(By.XPATH, self.lable_error1_xpath):
+        if self.driver.find_element(By.XPATH, self.label_error1_xpath):
             assert True
             self.driver.close()
         else:
@@ -184,7 +184,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(2)
 
-        if self.driver.find_element(By.XPATH, self.lable_error3_xpath):
+        if self.driver.find_element(By.XPATH, self.label_error3_xpath):
             assert True
             self.driver.close()
         else:
@@ -209,7 +209,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(2)
 
-        if self.driver.find_element(By.XPATH, self.lable_error2_xpath):
+        if self.driver.find_element(By.XPATH, self.label_error2_xpath):
             assert True
             self.driver.close()
         else:
@@ -234,7 +234,7 @@ class Test:
         self.lp.clickLogin()
         time.sleep(4)
 
-        if self.driver.find_element(By.XPATH, self.lable_logout_xpath):
+        if self.driver.find_element(By.XPATH, self.label_logout_xpath):
             assert True
             self.driver.close()
         else:

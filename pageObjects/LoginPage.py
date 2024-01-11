@@ -22,4 +22,10 @@ class LoginPage:
     def clickLogin(self):
         self.driver.find_element(By.XPATH, self.button_login_xpath).click()
 
+    def loginSuccess(self, username, password):
+        self.setUsername(username)
+        self.setPassword(password)
+        self.clickLogin()
+
+
 
