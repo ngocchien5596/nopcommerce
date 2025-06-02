@@ -8,8 +8,8 @@ def setup(browser):
     print(browser)
     if browser == 'chrome':
         chrome_options = Options()
-        chrome_options.binary_location = '/Users/ngocchien/Downloads/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing'
-        chrome_driver_path = '/Users/ngocchien/Downloads/chromedriver-mac-arm64/chromedriver'
+        chrome_options.binary_location = r'C:\Users\84975\Downloads\chrome-win64\chrome.exe'
+        chrome_driver_path = r'C:\Users\84975\Downloads\chromedriver-win64\chromedriver.exe'
         service_options = webdriver.ChromeService(executable_path=chrome_driver_path)
         driver = webdriver.Chrome(service=service_options,
                                   options=chrome_options)
