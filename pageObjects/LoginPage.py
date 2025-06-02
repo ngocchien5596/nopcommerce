@@ -17,11 +17,13 @@ class LoginPage:
         user_name_input.send_keys(username)
 
     def setPassword(self, password):
-        self.driver.find_element(By.ID, self.textbox_password_id).clear()
-        self.driver.find_element(By.ID, self.textbox_password_id).send_keys(password)
+        password_input = self.driver.find_element(By.ID, self.textbox_password_id)
+        password_input.clear()
+        password_input.send_keys(password)
 
     def clickLogin(self):
-        self.driver.find_element(By.XPATH, self.button_login_xpath).click()
+        login_button = self.driver.find_element(By.XPATH, self.button_login_xpath)
+        login_button.click()
 
     def loginSuccess(self, username, password):
         self.setUsername(username)
